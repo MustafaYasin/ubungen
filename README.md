@@ -29,7 +29,7 @@ scrapy crawl ubungen
 This will fetch all movies's information which has minimum of 1000 votes on IMDB. You can however change this value passing an additional parameter. Like below: 
 
 ```
-scrapy crawl imdb -a min_votes=<your_preferred_no> 
+scrapy crawl ubungen -a min_votes=<your_preferred_no> 
 ```
 
 ### Licence 

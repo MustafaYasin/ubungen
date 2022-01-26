@@ -16,14 +16,14 @@ pip install Scrapy
 First, clone the project and go to the project directory. 
 
 ```
-git clone https://github.com/Ahsanul08/ImdbScraper.git
-cd ImdbScraper
+git clone https://github.com/MustafaYasin/ubungen.git
+cd ubungen
 ```
 
 And run the crawler with:
 
 ```
-scrapy crawl imdb 
+scrapy crawl ubungen
 ```
 
 This will fetch all movies's information which has minimum of 1000 votes on IMDB. You can however change this value passing an additional parameter. Like below: 

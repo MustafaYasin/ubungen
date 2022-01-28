@@ -1,8 +1,8 @@
 import re
 import scrapy
 from scrapy.loader import ItemLoader
-from imdb.items import ImdbItem
-from imdb.utils.contentpath import name_to_xpath_mapper
+from ubungen.items import UbungenItem
+from ubungen.utils.contentpath import name_to_xpath_mapper
 
 
 class UbungenSpider(scrapy.Spider):
@@ -23,7 +23,7 @@ class UbungenSpider(scrapy.Spider):
             yield scrapy.Request(response.urljoin(movie_url), callback=self.fetch_movie)
 
     def fetch_movie(self, response):
-        item_loader = ItemLoader(item=ImdbItem(), response=response)
+        item_loader = ItemLoader(item=UbugenItem(), response=response)
 
         for name, xpath in name_to_xpath_mapper.items():
             item_loader.add_xpath(name, xpath)

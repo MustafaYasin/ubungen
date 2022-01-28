@@ -5,12 +5,12 @@ from imdb.items import ImdbItem
 from imdb.utils.contentpath import name_to_xpath_mapper
 
 
-class IMDBSpider(scrapy.Spider):
-    name = "imdb"
-    start_urls = ["http://www.imdb.com/chart/top"]
+class UbungenSpider(scrapy.Spider):
+    name = "ubungen"
+    start_urls = ["https://www.uebungen.ws/"]
 
     def __init__(self, min_votes = 1000, *args, **kwargs):
-        super(IMDBSpider, self).__init__(*args, **kwargs)
+        super(UbungenSpider, self).__init__(*args, **kwargs)
         self.min_votes = int(min_votes)
 
     def parse(self, response):

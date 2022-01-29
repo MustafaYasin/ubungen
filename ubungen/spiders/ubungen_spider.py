@@ -14,14 +14,14 @@ class UbungenSpider(scrapy.Spider):
         self.min_votes = int(min_votes)
 
     def parse(self, response):
-        for muscle_group in response.xpath('//a[@class="auswahlboxlink"]/@href').extract():
-            yield scrapy.Request(muscle_group, callback=self.parse_auswahlbox)
+        for muscle in response.xpath('//a[@class="auswahlboxlink"]/@href').extract():
+            yield scrapy.Request(muscle, callback=self.parse_auswahlbox)
 
     def parse_auswahlbox(self, response):
         for katauswahlbox in response.xpath('//a[@class="katauswahlboxlink"]/@href').extract():
             yield scrapy.Request(katauswahlbox, callback=self.parse_list_of_exercises)
 
-     def parse_list_of_exercises(self, response):
+    def parse_list_of_exercises(self, response):
         for exercise in response.xpath('//h3[@class="content-list-title"]/a/@href').extract():
             yield scrapy.Request(exercise, callback=self.call_exercises)
 

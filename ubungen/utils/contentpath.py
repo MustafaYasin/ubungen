@@ -1,24 +1,21 @@
 name_to_xpath_mapper = {
-    'movie_name': '//h1[@itemprop = "name"]/text()',
-    'release_year': '//span[@id = "titleYear"]/a/text()',
-    'rating': '//span[@itemprop="ratingValue"]/text()',
-    'total_votes': '//span[@itemprop="ratingCount"]/text()',
-    'director_name': '//span[@itemprop="director"]/a/span/text()',
-    'top_actors': '//span[@itemprop="actors"]/a/span/text()',
-    'storyline': '//div[@itemprop="description"]/p/text()',
-    'tagline': '//h4[text() = "Taglines:"]/following-sibling::text()',
-    'genres': '//div[@itemprop="genre"]/a/text()',
-    'country': '//h4[text() = "Country:"]/following::a/text()',
-    'languages': '//h4[text() = "Language:"]/following-sibling::a/text()',
-    'filming_locations': '//h4[text() = "Filming Locations:"]/following-sibling::a/text()',
-    'budget': '//h4[text() = "Budget:"]/following-sibling::text()',
-    'gross_income': '//h4[text() = "Gross:"]/following-sibling::text()',
-    'color': '//h4[text() = "Color:"]/following-sibling::a/text()',
-    'production_company': '//h4[text() = "Production Co:"]/following-sibling::span[@itemprop="creator"]/a/span/text()',
-    'runtime': '//h4[text() = "Runtime:"]/following::time/text()',
-    'metascore': '//div[contains(@class,"metacriticScore")]/span/text()'
+    'muscle_group': '//h1[@itemprop = "name"]/text()',
+    'muscle_description': '//span[@id = "titleYear"]/a/text()',
+    'muscle_title': '//span[@itemprop="ratingValue"]/text()',
+    'subset_muscles': '//span[@itemprop="ratingCount"]/text()',
+    'list_of_exercises': '//span[@itemprop="director"]/a/span/text()',
+    'list_of_sub_exercises': '//span[@itemprop="actors"]/a/span/text()',
+    'exercise_title': '//div[@itemprop="description"]/p/text()',
+    'muscle_image': '//h4[text() = "Taglines:"]/following-sibling::text()',
+    'equipment': '//div[@itemprop="genre"]/a/text()',
+    'exercise_level': '//h4[text() = "Country:"]/following::a/text()',
+    'target_muscles': '//h4[text() = "Language:"]/following-sibling::a/text()',
+    'supporting_muscles': '//h4[text() = "Filming Locations:"]/following-sibling::a/text()',
+    'synonym_titles': '//h4[text() = "Budget:"]/following-sibling::text()',
+    'exercise_execution': '//h4[text() = "Gross:"]/following-sibling::text()',
+    'video_links': '//h4[text() = "Color:"]/following-sibling::a/text()',
+
 }
 
-export_order = ["movie_name", "release_year", "rating", "total_votes", "director_name", "top_actors", "metascore",
-                "storyline", "tagline", "genres", "country", "languages", "filming_locations", "budget", "gross_income",
-                "color", "production_company", "runtime"]
+export_order = ["muscle_group", "muscle_description", "muscle_title", "subset_muscles", "list_of_exercises", "muscle_image", "equipment",
+                "exercise_level", "target_muscles", "supporting_muscles", "synonym_titles", "exercise_execution", "video_links"]

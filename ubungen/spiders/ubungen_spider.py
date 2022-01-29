@@ -14,14 +14,18 @@ class UbungenSpider(scrapy.Spider):
         self.min_votes = int(min_votes)
 
     def parse(self, response):
-        for genre_page in response.xpath('//li[@class = "subnav_item_main"]/a/@href').extract():
-            genre_page = re.sub(r'(num_votes=)\d+', '\g<1>{}'.format(self.min_votes), genre_page)
-            yield scrapy.Request(response.urljoin(genre_page), callback=self.parse_attributes)
+        for muscle_group in response.xpath('//a[@class="auswahlboxlink"]/@href').extract():
+            yield scrapy.Request(muscle_group, callback=self.parse_auswahlbox)
 
-    def parse_attributes(self, response):
-        for movie_url in response.xpath('//h3[@class = "lister-item-header"]/a/@href').extract():
-            yield scrapy.Request(response.urljoin(movie_url), callback=self.fetch_movie)
+    def parse_auswahlbox(self, response):
+        for katauswahlbox in response.xpath('//a[@class="katauswahlboxlink"]/@href').extract():
+            yield scrapy.Request(katauswahlbox, callback=self.parse_list_of_exercises)
 
+     def parse_list_of_exercises(self, response):
+        for exercise in response.xpath('//h3[@class="content-list-title"]/a/@href').extract():
+            yield scrapy.Request(exercise, callback=self.call_exercises)
+
+    '''
     def fetch_movie(self, response):
         item_loader = ItemLoader(item=UbugenItem(), response=response)
 
@@ -32,3 +36,18 @@ class UbungenSpider(scrapy.Spider):
         next_page = response.xpath('//div[@class = "nav"]/div[@class = "desc"]/a/@href').extract_first()
         if next_page:
             yield scrapy.Request(response.urljoin(next_page), callback= self.fetch_movie)
+    '''
+        
+    
+    def call_exercises(self, response):
+        muscle_group = response.xpath('//nav[@class="breadcrumb"]/a/text()').extract_first()
+        subset_muscles = response.xpath('//nav[@class="breadcrumb"]/span/a/span/text()').extract()[1]
+        exercise_title = response.xpath('//h1[@class="entry-title"]/text()').extract_first()
+        muscle_description_title = response.xpath('//div[@class="entry-content clearfix"]/h2/text()').extract_first()
+        TAG_RE = re.compile(r'<[^>]+>')
+        muscle_description = response.xpath('//div[@class="entry-content clearfix"]/p').extract_first()
+        muscle_description = TAG_RE.sub('', muscle_description)
+        exercise_execution_title = response.xpath('//div[@class="entry-content clearfix"]/h2/text()').extract()[1]
+        #exercise_execution = 
+
+

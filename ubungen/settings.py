@@ -65,7 +65,8 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'ubungen.pipelines.UbungenPipeline': 300,
+    'ubungen.pipelines.MongoPipeline': 400,
+    'ubungen.pipelines.TranSummarisePipeline': 100
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

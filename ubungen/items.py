@@ -16,10 +16,6 @@ if sys.version_info[0] >= 3:
     unicode = str
 
 class UbungenItem(scrapy.Item):
-    movie_name = scrapy.Field(
-        input_processor=MapCompose(unicode.strip),
-        output_processor=TakeFirst()
-    )
     release_year = scrapy.Field(output_processor=TakeFirst())
     rating = scrapy.Field(output_processor=TakeFirst())
     total_votes = scrapy.Field(

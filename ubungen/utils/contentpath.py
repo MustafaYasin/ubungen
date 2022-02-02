@@ -10,4 +10,5 @@ name_to_xpath_mapper = {
 
 }
 
-export_order = ["movie_name", "muscle_group", "subset_muscles", "exercise_title", "muscle_description_title", "muscle_description", "exercise_execution_title"]
+export_order = ["muscle_group", "subset_muscles", "exercise_title", "muscle_description_title", "muscle_description",
+                "exercise_execution_title"]

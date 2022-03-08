@@ -1,5 +1,5 @@
 
-# ImdbScraper
+# Ubungen Scraper
 
 This is a scrapy project to scrap movies' informations from www.imdb.com and store them into a csv file.  
 
